@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherSnap</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-900 text-white min-h-screen flex flex-col items-center justify-center p-4 font-inter">
+
+    <header class="mb-6 flex items-center gap-2">
+        <h1 class="text-2xl font-bold tracking-wide">WeatherSnap</h1>
+        <i class="ph-fill ph-sun text-yellow-400 text-2xl"></i>
+    </header>
+
+    <main class="w-full max-w-sm glass-panel rounded-3xl overflow-hidden shadow-2xl relative">
+        
+        <div class="flex border-b border-white/10 text-sm font-medium">
+            <button class="flex-1 py-3 bg-white/10 text-white">
+                <i class="ph ph-house mr-1"></i> Início
+            </button>
+        </div>
+
+        <div class="p-5">
+            <div class="relative">
+                <i class="ph ph-magnifying-glass absolute left-3 top-3.5 text-gray-400"></i>
+                <input type="text" id="city-input" placeholder="Buscar cidade..." 
+                    class="w-full bg-gray-800/50 border border-gray-700 text-sm rounded-lg pl-10 pr-20 py-3 focus:outline-none focus:border-blue-500 transition-colors text-white placeholder-gray-500">
+                <button id="search-btn" class="absolute right-1 top-1 bg-gray-700 hover:bg-gray-600 text-xs text-white px-3 py-2 rounded-md transition-colors mt-0.5">
+                    Buscar
+                </button>
+            </div>
+            <p id="error-msg" class="text-red-400 text-xs mt-2 hidden text-center">Cidade não encontrada.</p>
+        </div>
+
+        <div id="weather-content" class="px-6 pb-6 text-center">
+            
+            <div class="mb-6">
+                <h2 id="city-name" class="text-2xl font-bold">--</h2>
+                <p id="current-date" class="text-xs text-gray-400 uppercase tracking-wider mt-1">--</p>
+            </div>
+
+            <div class="flex flex-col items-center justify-center mb-6">
+                <div class="flex items-center gap-4">
+                    <img id="weather-icon" src="https://cdn-icons-png.flaticon.com/512/1163/1163657.png" alt="Clima" class="w-16 h-16 drop-shadow-lg float-animation">
+                    <span id="temperature" class="text-5xl font-bold">--°C</span>
+                </div>
+                <p id="weather-desc" class="text-lg font-medium mt-2 capitalize">--</p>
+                
+                <div class="flex gap-4 mt-3 text-xs text-gray-400">
+                    <span class="flex items-center gap-1"><i class="ph ph-wind"></i> <span id="wind">-- km/h</span></span>
+                    <span class="flex items-center gap-1"><i class="ph ph-drop"></i> <span id="humidity">--%</span></span>
+                </div>
+            </div>
+
+            <div class="bg-gray-700/40 p-4 rounded-xl border border-white/5 mb-6">
+                <p id="smart-tip" class="text-sm text-gray-200 leading-relaxed">
+                    Pesquise uma cidade para ver a previsão! 🌍
+                </p>
+            </div>
+
+            <div class="text-left">
+                <h3 class="text-xs font-semibold text-gray-400 mb-3">Próximos dias</h3>
+                <div id="forecast-container" class="grid grid-cols-3 gap-3">
+                    </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
